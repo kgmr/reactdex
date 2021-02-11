@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import  { Entry }  from './components/FrontComponents';
 import { Container } from 'react-bootstrap';
 import { Front } from './components/Front';
 

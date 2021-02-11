@@ -1,7 +1,7 @@
 .App {
   text-align: center;
-  padding-top:30vh;
-  background-color: #ffe;
+  padding-top:5vh;
+  background-color: #eee;
 
 }
 
@@ -17,7 +17,7 @@
 }
 
 .App-header {
-  background-color: #ffe;
+  background-color: #eee;
   min-height: 90vh;
   font-size: calc(10px + 2vmin);
   color: white;

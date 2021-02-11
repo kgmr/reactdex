@@ -5,7 +5,7 @@ const cache = setupCache({
   });
 
   const api = axios.create({
-    timeout:1000,
+    timeout:15000,
     baseURL: 'https://pokeapi.co/api/v2',
     adapter: cache.adapter
   });
@@ -17,35 +17,31 @@ const cache = setupCache({
   export class dexApi{
     dexes:region[] = [
       {name:'Kanto', api:'kanto'},
-      {name:'Johto', api:'johto'},
+      {name:'Johto', api:'original-johto'},
       {name:'Hoenn', api:'hoenn'},
       {name:'Sinnoh', api:'original-sinnoh'},
       {name:'Unova', api:'original-unova'},
       {name:'Kalos: Central', api:'kalos-central'},
       {name:'Kalos: Coastal', api:'kalos-coastal'},
       {name:'Kalos: Mountain', api:'kalos-mountain'},
-      {name:'Alola', api:'alola'},
+      {name:'Alola', api:'original-alola'},
       ];
 
-    /*
-    dexes:object = api.get('/pokedex')
-    .then(response => {
-      return(response.data.results);
-    });
-   */
-//dex.api is a string
-    getPokedex(pokedex:string){
-      api.get('/pokedex/' + pokedex)
-      .then(response =>{
-        return (response.data.pokemon_entries);
-      });
-    }
-      getPokemon(pokemon:string){
-        api.get('/pokemon/' + pokemon)
-        .then(response =>{
-          return(response.data);
-        });
+      readonly entries:string = 'pokemon_entries';
 
+    getPokedex(pokedex:string): any{
+      return api.get('/pokedex/' + pokedex);
       }
+      getPokemon(pokemon:string): any{
+        return api.get('/pokemon/' + pokemon);
+        }
 
-  }
+
+    }
+    /*
+        const test = new dexApi();
+        test.getPokedex('kanto').then(function(response:any){
+          console.log(response.data[test.entries]);
+        });
+        */
+
