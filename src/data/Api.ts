@@ -35,7 +35,7 @@ const cache = setupCache({
    */
 //dex.api is a string
     getPokedex(pokedex:string){
-      api.get('/generation/' + pokedex)
+      api.get('/pokedex/' + pokedex)
       .then(response =>{
         return (response.data.pokemon_entries);
       });
